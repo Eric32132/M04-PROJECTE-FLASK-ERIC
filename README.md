@@ -1,1 +1,3 @@
-# M04-PROJECTE-FLASK-ERIC
+# Documentació del projecte
+
+# 

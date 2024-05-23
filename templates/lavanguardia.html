@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Vanguardia - {{rss.feed.title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>La Vanguardia - <small>{{rss.feed.title}}</small></h1>
+    <p>Logo del canal: <img src="{{rss.feed.image.url}}" alt="Logo de La Vanguardia" /></p>
+    <p>URL del canal: <a href="{{rss.feed.link}}">{{rss.feed.link}}</a></p>
+
+    {% for item in rss.entries %}
+        <div>
+            <h2>{{item.title}}</h2>
+            {% for media in item.media_content %}
+                <img src="{{media.url}}" alt="{{item.title}}">
+            {% endfor %}
+            <p>{{item.description}}</p>
+            <p>Data de creació: {{item.published}}</p>
+            <p>Data de modificació: {{item.updated}}</p>
+            <p>Autor: {{item.author}}</p>
+            <p>Categoria: {{item.category}}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
+

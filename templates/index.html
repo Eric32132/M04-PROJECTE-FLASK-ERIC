@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Diaris!</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Inici</a></li>
+            <li><a href="./lavanguardia.html">La Vanguardia</a></li>
+            <li><a href="./elpais.html">El País</a></li>
+            <li><a href="./elnacional.html">El Nacional</a></li>
+            <li><a href="./contact.html">Contacte</a></li>
+        </ul>
+    </nav>
+
+    <div class="carousel">
+        <div class="carousel-container">
+            <img src="/static/img/noticia1.jpg" alt="Notícia 1" class="carousel-slide">
+            <img src="/static/img/noticia2.jpg" alt="Notícia 2" class="carousel-slide">
+            <img src="/static/img/noticia3.jpg" alt="Notícia 3" class="carousel-slide">
+        </div>
+        <button class="carousel-prev">&#10094;</button>
+        <button class="carousel-next">&#10095;</button>
+    </div>
+
+    <p>Mira les noticies de La Vanguardia:</p>
+    <ul>
+        <li><a href="lavanguardia/cultura">Cultura</a></li>
+        <li><a href="lavanguardia/deportes">Deportes</a></li>
+        <li><a href="lavanguardia/politica">Política</a></li>
+        <li><a href="lavanguardia/series">Series</a></li>
+        <li><a href="lavanguardia/vida">Vida</a></li>
+    </ul>
+    <img src="/static/img/diaris.jpg" alt="Diaris" />
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("carousel-slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 3000);
+        }
+
+        document.querySelector(".carousel-prev").addEventListener("click", () => {
+            slideIndex -= 2;
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            showSlides();
+        });
+
+        document.querySelector(".carousel-next").addEventListener("click", showSlides);
+    </script>
+</body>
+</html>
